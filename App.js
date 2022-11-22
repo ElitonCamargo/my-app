@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import TelaAntDesign from "./components/TelaAntDesign";
+import TelaOcticons from "./components/TelaOcticons";
+import TelaEntypo from "./components/TelaEntypo"
+
+const Menu = createBottomTabNavigator().Navigator;
+const ItenMenu = createBottomTabNavigator().Screen;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Menu>
+        <ItenMenu name="Ant-Design" component={ TelaAntDesign } />
+        <ItenMenu name="Octicons" component={ TelaOcticons }/>
+        <ItenMenu name="Entypo" component={ TelaEntypo }/>
+      </Menu>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
